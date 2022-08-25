@@ -1,13 +1,191 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.2);
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: gray;
+}
+li{
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+
+}
+.items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+
+}
+
+.card{
+    color: gray;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.profile-pic{
+    width: 40%;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px;
+}
+
+.container-right{
+    width: 50%;
+}
+
+.container-left{
+    width: 50%;
+}
+.App{
+    width: 85%;
+}
+
+
+.thumbnail-img{
+    width: 80%;
+    border-radius: 20px;
+    object-fit: fill;
+}
+
+h3{
+    letter-spacing: 3px;
+    color: hsl(26, 100%, 55%);
+}
+
+p{
+    color: rgb(0, 0, 0);
+    opacity: 0.5;
+    margin-top: 50px;
+}
+.price{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.percentage{
+    color: hsl(26, 100%, 55%);
+    background: hsl(25, 100%, 94%);
+    border-radius: 5px;
+    width: auto;
+    margin-left: 10px;
+    
+}
+
+.prev-price{
+    opacity: 0.6;
+    font-size: 1.2rem;
+}
+
+.product-controller{
+    width: 40%;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+    background: hsl(223, 64%, 98%);
+    border: 1px solid hsl(223, 64%, 98%);
+    border-radius: 15px;
+}
+.add, .reduce{
+    padding: 10px;
+    background: none;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-to-card-btn{
+    color: white;
+    background: hsl(26, 100%, 55%);
+    border: 1px solid hsl(26, 100%, 55%);
+    padding: 20px;
+    width: 50%;
+    border-radius: 20px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+
+.bottom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.product1-btn img, .product2-btn img, .product3-btn img, .product4-btn img{
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+}
+.product1-btn, .product2-btn , .product3-btn , .product4-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.product1-btn.focused-btn, .product2-btn.focused-btn, .product3-btn.focused-btn, .product4-btn.focused-btn{
+    opacity: 0.5;
+    border: hsl(26, 100%, 55%) 3px solid;
+    border-radius:15px ;
+}
+.btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 10px;
+}
+
+.modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
 }
