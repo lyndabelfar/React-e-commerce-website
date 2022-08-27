@@ -1,6 +1,9 @@
 import Navbar from "./Navbar";
 import ProductController from "./ProductController";
-import AddToCardButton from "./AddToCardButton";
+import AddToCardButton from './AddToCardButton';
+import { FaShoppingCart } from "react-icons/fa";
+
+import Modal from './Modal'
 
 
 import productImg1 from "./images/image-product-1.jpg";
@@ -21,12 +24,21 @@ import { useState } from "react";
 function App() {
 
   const [currentProduct, setCurrentProduct] = useState(0)
+  const [numProduct, setNumProduct] = useState(0)
+  const [cartDeleted, setCartDeleted] = useState(false)
+
+
   const [currentImage, setCurrentImage] = useState(productImg1Thumb)
   const [focusedButton1, setFocusedButton1] = useState(true)
   const [focusedButton2, setFocusedButton2] = useState(false)
   const [focusedButton3, setFocusedButton3] = useState(false)
   const [focusedButton4, setFocusedButton4] = useState(false)
 
+
+  const [openedModal, setOpenedModal] = useState(false)
+
+
+  const [contentCart, setContentCart] = useState(false)
 
 
   const changeThumbnailImage1 =()=>{
@@ -65,10 +77,11 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+
+      <Navbar cartDeleted={cartDeleted} setCartDeleted={setCartDeleted} contentCart={contentCart}  currentProduct={currentProduct} numProduct={numProduct}/>
       <div className="container">
         <div className="container-left">
-          <img className="thumbnail-img" src={currentImage}/>
+          <img className="thumbnail-img" src={currentImage} onClick={()=>setOpenedModal(true)} />
           <div className="btns">
             <button className={`product1-btn ${focusedButton1?'focused-btn':''}`} onClick={changeThumbnailImage1}><img src={productImg1}/></button>
             <button className={`product2-btn ${focusedButton2?'focused-btn':''}`}  onClick={changeThumbnailImage2}><img src={productImg2} /></button>
@@ -77,12 +90,14 @@ function App() {
           </div>
 
 
+
         </div>
 
 
 
         <div className="container-right">
           <h3>SNEAKER COMPANY</h3>
+          <br/>
           <h1 className="title">Fall Limited Edition Sneakers</h1>
           <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
           <div className="price">
@@ -94,10 +109,31 @@ function App() {
           
           <div className="bottom">
             <ProductController currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} />
-            <AddToCardButton />
+            <AddToCardButton  cartDeleted={cartDeleted} setCartDeleted={setCartDeleted}  numProduct={numProduct} setNumProduct={setNumProduct} contentCart={contentCart} setContentCart={setContentCart} currentProduct={currentProduct} />
           </div>
         </div>
       </div>
+
+      {openedModal && 
+      
+      <Modal 
+      focusedButton1={focusedButton1} 
+      focusedButton2={focusedButton2} 
+      focusedButton3={focusedButton3}  
+      focusedButton4={focusedButton4}
+      changeThumbnailImage1={changeThumbnailImage1}
+      changeThumbnailImage2={changeThumbnailImage2}
+      changeThumbnailImage3={changeThumbnailImage3}
+      changeThumbnailImage4={changeThumbnailImage4}
+      currentImage={currentImage}
+
+      setOpenedModal={setOpenedModal}
+
+      />
+      }
+
+      
+
 
     </div>
   );

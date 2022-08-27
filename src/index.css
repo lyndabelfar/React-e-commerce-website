@@ -42,20 +42,56 @@ li{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     
 
 }
 
-.card{
+.card-btn, .delete-cart-content-btn{
     color: gray;
     background: none;
     border: none;
     cursor: pointer;
+    font-size: 1.5rem;
+}
+.card{
+    display: none;
+    background: white;
+    border-radius: 15px;
+    width: 350px;
+    height: 200px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    position: absolute;
+    right: 80px;
+    top: 65px;
+
+}
+.card.active-cart{
+    display: block;
 }
 
+.card-top{
+    text-align: start;
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+.card-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    color: gray;
+    font-weight: bolder;
+    padding: 7px;
+
+
+}
 
 .profile-pic{
     width: 40%;
+    cursor: pointer;
 }
 
 .container{
@@ -147,6 +183,17 @@ p{
     font-size: 1.25rem;
     cursor: pointer;
 }
+.checkout-btn{
+    color: white;
+    background: hsl(26, 100%, 55%);
+    border: 1px solid hsl(26, 100%, 55%);
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+    font-size: 1.25rem;
+    cursor: pointer;
+
+}
 
 
 .bottom{
@@ -182,10 +229,85 @@ p{
     width: 80%;
     margin-top: 10px;
 }
+.btns-modal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    width: 50%;
+    margin-top: 10px;
+    margin-right: 70px;
+}
 
 .modal{
     position: absolute;
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
+}
+
+
+.full-cart{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.full-cart-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+
+}
+
+.top-cart-full{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: lighter;
+    width: 100%;
+}
+
+span{
+    color: black;
+    margin-left: 5px;
+    font-weight: bolder;
+
+}
+
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50% );
+    z-index: 10;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 40%;
+
+}
+
+.overlay{
+    background: black;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.close-modal-btn{
+    color: hsl(26, 100%, 55%);
+    background: none;
+    border: none;
+    padding: 5px;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    cursor: pointer;
 }
